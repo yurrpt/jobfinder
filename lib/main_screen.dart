@@ -1,11 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:job_finder_ui/screens/home/home_screen.dart';
+
 import 'bottom_tab_bar.dart';
+import 'screens/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static const route = '/main-screen';
   final String? username;
-  MainScreen({Key? key, @required this.username}) : super(key: key);
+  MainScreen({Key? key, this.username}) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -14,12 +17,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int pageIndex = 0;
 
-  final List<Widget> pageList = <Widget>[
-    HomeScreen(username),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    inspect(widget.username);
+    final List<Widget> pageList = <Widget>[
+      HomeScreen(username: widget.username ?? ''),
+    ];
+
     return Scaffold(
       extendBody: true,
       body: pageList[pageIndex],

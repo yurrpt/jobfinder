@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({Key? key}) : super(key: key);
+  final String? name;
+  const HomeAppBar({Key? key, this.name}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +20,8 @@ class HomeAppBar extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               Text(
-                'Omer Ozturk',
-                style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                '$name',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
               ),
             ],
           ),

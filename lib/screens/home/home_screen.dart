@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder_ui/screens/home/widgets/home_app_bar.dart';
-import 'package:job_finder_ui/screens/home/widgets/job_list.dart';
-import 'package:job_finder_ui/screens/home/widgets/search_card.dart';
+
+import 'widgets/home_app_bar.dart';
+import 'widgets/job_list.dart';
+import 'widgets/search_card.dart';
 
 class HomeScreen extends StatelessWidget {
-  final String? username;
-  const HomeScreen({Key? key, this.username}) : super(key: key);
+  final String username;
+  const HomeScreen({Key? key, required this.username}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,9 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                HomeAppBar(),
+                HomeAppBar(name: username),
                 SearchCard(),
-                Container(
-                    margin: EdgeInsets.only(bottom: 40), child: JobList()),
+                Container(margin: EdgeInsets.only(bottom: 40), child: JobList()),
               ],
             ),
           ),
